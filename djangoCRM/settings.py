@@ -12,6 +12,12 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 
+import environ
+
+# Initialise environment variables
+env = environ.Env()
+environ.Env.read_env()
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -20,21 +26,21 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-gdjo=31ls072-0bo1m-9k8t#0)qlthzd3o(6-x4q1baeo$=a+x"
+SECRET_KEY = env("SECRET_KEY")
 
 # Stripe integration
-STRIPE_PUB_KEY = "pk_test_51Ooj5CDt2TslN65tQY0qmSOi7qVGCqCuQAZqWfVJjkfo3tSb4XxI3h59yrxgAtvFU6WduQufV7GWsGlzDmg4hdjf00O3UIdRA8"
-STRIPE_SECRET_KEY = "sk_test_51Ooj5CDt2TslN65tjFjEgtLM9tNf85LYiHuiAsbUoVteyijmfsLRp6fF9z2VucDzPCBWjqaaDPTKAPsboh8jsbPv00aZl9L9As"
+STRIPE_PUB_KEY = env("STRIPE_PUB_KEY")
+STRIPE_SECRET_KEY = env("STRIPE_SECRET_KEY")
 
 # adding strip price based on product created
-STRIPE_PRICE_ID_SMALL_TEAM = "price_1OojAPDt2TslN65ttJrHNSxN"
-STRIPE_PRICE_ID_BIG_TEAM = "price_1OojAiDt2TslN65tnFhmyJP9"
+STRIPE_PRICE_ID_SMALL_TEAM = env("STRIPE_PRICE_ID_SMALL_TEAM")
+STRIPE_PRICE_ID_BIG_TEAM = env("STRIPE_PRICE_ID_BIG_TEAM")
 
 # stripe CLI webhook key
-STRIPE_WEBHOOK_KEY = "whsec_249546a659b296d65cf5caadbda683745bc64d74f686355076d5852cb5ae56e1"
+STRIPE_WEBHOOK_KEY = env("STRIPE_WEBHOOK_KEY")
 
-FRONTEND_WEBSITE_SUCCESS_URL = 'http://localhost:8081/dashboard/team/plans/thankyou'
-FRONTEND_WEBSITE_CANCEL_URL = 'http://localhost:8081/dashboard/team/plans'
+FRONTEND_WEBSITE_SUCCESS_URL = "http://localhost:8081/dashboard/team/plans/thankyou"
+FRONTEND_WEBSITE_CANCEL_URL = "http://localhost:8081/dashboard/team/plans"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
