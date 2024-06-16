@@ -18,40 +18,42 @@ This project is a Customer Relationship Management (CRM) backend application bui
 
 ### Authentication
 
-- **Registration:** `/register/`
-- **Login:** `/login/`
-- **Logout:** `/logout/`
+- **Registration:** `api/v1/users/`
+- **Login:** `api/v1/token/login/`
+- **Logout:** `api/v1/token/logout/`
 
-### Contacts
 
-- **Create Contact:** `/contact/create/`
-- **Edit Contact:** `/contact/<contact_id>/edit/`
-- **Delete Contact:** `/contact/<contact_id>/delete/`
+### Teams
 
-### Accounts
+- **Get my team:** GET `api/v1/teams/get_my_team/`
+- **Create Team:** POST `api/v1/teams/`
+- **Edit Team:** PUT/PATCH `api/v1/teams/<int:id>/`
+- **Delete Team:** DELETE `api/v1/teams/<int:id>/`
+- **Add member :** DELETE `api/v1/teams/add_member/`
 
-- **Create Account:** `/account/create/`
-- **Edit Account:** `/account/<account_id>/edit/`
-- **Delete Account:** `/account/<account_id>/delete/`
 
-### Opportunities
 
-- **Create Opportunity:** `/opportunity/create/`
-- **Edit Opportunity:** `/opportunity/<opportunity_id>/edit/`
-- **Delete Opportunity:** `/opportunity/<opportunity_id>/delete/`
+### Leads
+- **Leads List:** GET `api/v1/leads/`
+- **Create Lead:** POST `api/v1/leads/` 
+- **Edit Lead:** PUT/PATCH `api/v1/leads/<int:id>/`
+- **Delete Lead:** POST `api/v1/leads/delete_lead/<int:id>/`
 
-### Tasks
 
-- **Create Task:** `/task/create/`
-- **Edit Task:** `/task/<task_id>/edit/`
-- **Delete Task:** `/task/<task_id>/delete/`
+### Clients
 
-### Reports
+- **Client List:** GET `api/v1/clients/` 
+- **Create Client:** POST `api/v1/clients/` 
+- **Edit Client:** PUT/PATCH `api/v1/clients/<int:id>/`
+- **Delete Client:** DELETE `api/v1/clients/delete_client/<int:id>/`
 
-- **Generate Contact Report:** `/report/contacts/`
-- **Generate Account Report:** `/report/accounts/`
-- **Generate Opportunity Report:** `/report/opportunities/`
-- **Generate Task Report:** `/report/tasks/`
+
+### Notes
+
+- **Notes List (with client_id as query param):** GET `api/v1/notes/?client_id=<int:id>` 
+- **Create Note:** POST `api/v1/notes/`
+- **Edit note (with client_id as query param):** PATCH `api/v1/notes/1/?client_id=1`
+
 
 ## Installation
 
