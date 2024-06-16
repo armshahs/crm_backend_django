@@ -10,7 +10,7 @@ This project is a Customer Relationship Management (CRM) backend application bui
 - **Account Management:** Track accounts and their associated contacts.
 - **Opportunity Tracking:** Monitor sales opportunities and their progress.
 - **Task Management:** Assign tasks and track their completion status.
-- **Reporting:** Generate reports to analyze sales performance and customer data.
+
 
 
 
@@ -21,6 +21,8 @@ This project is a Customer Relationship Management (CRM) backend application bui
 - **Registration:** `api/v1/users/`
 - **Login:** `api/v1/token/login/`
 - **Logout:** `api/v1/token/logout/`
+- **User details:** GET `api/v1/teams/member/<int:id>/`
+- **User details:** PUT `api/v1/teams/member/<int:id>/`
 
 
 ### Teams
@@ -29,7 +31,7 @@ This project is a Customer Relationship Management (CRM) backend application bui
 - **Create Team:** POST `api/v1/teams/`
 - **Edit Team:** PUT/PATCH `api/v1/teams/<int:id>/`
 - **Delete Team:** DELETE `api/v1/teams/<int:id>/`
-- **Add member :** DELETE `api/v1/teams/add_member/`
+- **Add member:** DELETE `api/v1/teams/add_member/`
 
 
 
@@ -37,7 +39,8 @@ This project is a Customer Relationship Management (CRM) backend application bui
 - **Leads List:** GET `api/v1/leads/`
 - **Create Lead:** POST `api/v1/leads/` 
 - **Edit Lead:** PUT/PATCH `api/v1/leads/<int:id>/`
-- **Delete Lead:** POST `api/v1/leads/delete_lead/<int:id>/`
+- **Delete Lead:** POST `api/v1/leads/delete_lead/<int:id>/` 
+- **Convert Lead to Client:** POST `api/v1/convert_lead_to_client/` 
 
 
 ### Clients
@@ -53,6 +56,16 @@ This project is a Customer Relationship Management (CRM) backend application bui
 - **Notes List (with client_id as query param):** GET `api/v1/notes/?client_id=<int:id>` 
 - **Create Note:** POST `api/v1/notes/`
 - **Edit note (with client_id as query param):** PATCH `api/v1/notes/1/?client_id=1`
+
+
+### Stripe payment
+
+- **Upgrade plan:** POST `api/v1/teams/upgrade_plan/`
+- **Get Pub Key:** GET `api/v1/stripe/get_stripe_pub_key/`
+- **Create checkout session:** POST `api/v1/stripe/create_checkout_session/`
+- **Webhook:** POST `api/v1/stripe/webhook/`
+
+
 
 
 ## Installation
